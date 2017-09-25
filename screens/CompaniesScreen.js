@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { MKButton, MKColor, MKTouchable } from 'react-native-material-kit';
 import { Button } from 'react-native-elements';
 
 class CompaniesScreen extends Component {
@@ -12,10 +11,12 @@ class CompaniesScreen extends Component {
     headerRight:
         <Button 
           title= "Edit Co"
-          onPress={() => navigation.navigate('companyEdit')} 
+          onPress={() => {
+            navigation.navigate('companyEdit')} 
+          }
         />
-    }
-  } 
+  }
+} 
   render() {
     return (
       <View>
@@ -29,15 +30,6 @@ class CompaniesScreen extends Component {
     )
   }
 }
-
-const ColoredRaisedButton = MKButton.coloredButton()
-.withText('BUTTON')
-.withOnPress(() => {
-  console.log("Hi, it's a colored button!");
-  navigation.navigate('companyEdit')
-})
-.build();
-
 
 
 export default CompaniesScreen;
