@@ -2,12 +2,9 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
-
+import { tabBarOptions } from 'react-navigation';
 
 class CompaniesScreen extends Component {
-  tabBarOptions: {
-    tabBarVisible: false
-  }
   
   static navigationOptions = ({ navigation }) => {
     return {

@@ -10,8 +10,9 @@ class AuthScreen extends Component {
     this.onAuthComplete(this.props);
 
     // uncomment to clear token from local storage//////////////////////
-    
+  
     AsyncStorage.removeItem('fb_token');
+    console.log("In AUUUUUUUUUUUthScreen",('fb_token)' === true));
   }
 
   componentWillReceiveProps(nextProps){
@@ -30,7 +31,7 @@ class AuthScreen extends Component {
         <Text> auth screen </Text>
         <Text> auth screen </Text>
         <Text> auth screen </Text>
-        
+
         <Text> auth screen </Text>
         </View>
     )
