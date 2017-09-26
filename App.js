@@ -20,6 +20,8 @@ export default class App extends React.Component {
         companyEdit: { screen: CompanyEditScreen }
         })
       }
+    }, {
+      lazy: true
     });
 
     return (
