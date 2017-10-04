@@ -33,7 +33,7 @@ const doFacebookLogin = async dispatch => {
      await console.log('ttttyyypppeeee', type);
      await AsyncStorage.setItem('fb_id', id);
      await AsyncStorage.setItem('fb_token', token);
-     dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
+     dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token, id: id})
   }
   else if (type === 'cancel'){
     return dispatch({ type: FACEBOOK_LOGIN_FAIL })
