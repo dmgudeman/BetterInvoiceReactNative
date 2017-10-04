@@ -8,14 +8,14 @@ import {
 
 // action creator
 export const facebookLogin = () => async dispatch => {
-  let token = await AsyncStorage.getItem('fb_token');
-  if (token) {
-    // Dispatch an action FB login is done
-    dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
-  } else {
+  // let token = await AsyncStorage.getItem('fb_token');
+  // if (token) {
+  //   // Dispatch an action FB login is done
+  //   dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
+  // } else {
     // Start up FB login process
     doFacebookLogin(dispatch);
-  }
+  // }
 }
 
 // helper function
@@ -24,10 +24,17 @@ const doFacebookLogin = async dispatch => {
     permissions: ['public_profile']}
   );
 
-  
-  if (type === 'cancel'){
+  if (type === 'success'){
+     const response = await fetch( `https://graph.facebook.com/me?access_token=${token}`);
+     await console.log( "Hi ", (await response.json()).id);
+     await console.log('tooooookeeeennn', token);
+     
+     await console.log('ttttyyypppeeee', type);
+     await AsyncStorage.setItem('fb_token', token);
+     dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
+  }
+  else if (type === 'cancel'){
     return dispatch({ type: FACEBOOK_LOGIN_FAIL })
   }
-  await AsyncStorage.setItem('fb_token', token);
-  dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
+ 
 }
