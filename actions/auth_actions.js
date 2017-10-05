@@ -26,14 +26,14 @@ const doFacebookLogin = async dispatch => {
 
   if (type === 'success'){
      const response = await fetch( `https://graph.facebook.com/me?access_token=${token}`);
-     const id = (await response.json()).id;
-     await console.log( "Hi ", id);
+     const userId = (await response.json()).id;
+     await console.log( "Hi ", userId);
      await console.log('tooooookeeeennn', token);
      
      await console.log('ttttyyypppeeee', type);
-     await AsyncStorage.setItem('fb_id', id);
+     await AsyncStorage.setItem('fb_id', userId);
      await AsyncStorage.setItem('fb_token', token);
-     dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token, id: id})
+     dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token, userId: userId})
   }
   else if (type === 'cancel'){
     return dispatch({ type: FACEBOOK_LOGIN_FAIL })
