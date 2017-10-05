@@ -3,7 +3,8 @@ import { Facebook } from 'expo';
 
 import {
   FACEBOOK_LOGIN_SUCCESS,
-  FACEBOOK_LOGIN_FAIL
+  FACEBOOK_LOGIN_FAIL,
+  GET_USER_ID
 } from './types';
 
 // action creator
@@ -27,8 +28,8 @@ const doFacebookLogin = async dispatch => {
   if (type === 'success'){
      const response = await fetch( `https://graph.facebook.com/me?access_token=${token}`);
      const userId = (await response.json()).id;
-     await console.log( "Hi ", userId);
      await console.log('tooooookeeeennn', token);
+     await console.log('USSSSSSERID', userId);
      
      await console.log('ttttyyypppeeee', type);
      await AsyncStorage.setItem('fb_id', userId);
@@ -39,4 +40,10 @@ const doFacebookLogin = async dispatch => {
     return dispatch({ type: FACEBOOK_LOGIN_FAIL })
   }
  
+}
+
+export const getUserId = () => async dispatch => {
+     await console.log( "Hi ", state.userId);
+  return dispatch({type: GET_USER_ID, userId: state.userId})
+
 }

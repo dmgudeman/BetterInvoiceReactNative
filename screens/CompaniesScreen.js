@@ -7,14 +7,13 @@ import { View, Text } from 'react-native';
 import { tabBarOptions } from 'react-navigation';
 import { AsyncStorage } from 'react-native';
 import { Button } from '../components/common';
-import { fetchCompanies } from '../actions';
+import { fetchCompanies, getUserId } from '../actions';
 
-const userId ='';
 class CompaniesScreen extends Component {
   
   onButtonPress() {
-    console.log('HHHHHHHHHHHHIIIIIIIIIIIII');
-    this.props.fetchCompanies();
+    // this.props.getUserId();
+    // this.props.fetchCompanies();
   }
   static navigationOptions = ({ navigation }) => {
     return {
@@ -39,15 +38,16 @@ class CompaniesScreen extends Component {
         <Button onPress={this.onButtonPress.bind(this)}>
           Send
         </Button>
-        <Text>{this.props.userId}</Text>
+        <Text>UserId= {this.props.userId}</Text>
       </View>
     )
   }
 }
 
 const mapStateToProps = state => {
+  console.log('SSSSSSSSSTTTTTTTTTTTATTTTTTTTTTTEEEEEEEE', state.auth.userId);
   return {
-    userId: state.companies.userId
+    userId: state.auth.userId
   }
 }
-export default connect(mapStateToProps, { fetchCompanies })(CompaniesScreen);
+export default connect(mapStateToProps, { fetchCompanies, getUserId })(CompaniesScreen);

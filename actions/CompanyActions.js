@@ -4,8 +4,8 @@ import {
   FETCH_COMPANIES
 } from './types';
 
-export const fetchCompanies = () => async dispatch => {
-  console.log('KKKKKKKKKKKKKKKKK');
+export const fetchCompanies = (userId) => async dispatch => {
+  console.log('KKKKKKKKKKKKKKKKK', userId);
   return { hiThere: 'hi there'}
   
   // return (dispatch) => {
