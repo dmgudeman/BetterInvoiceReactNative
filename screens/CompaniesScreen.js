@@ -10,10 +10,13 @@ import { Button } from '../components/common';
 import { fetchCompanies, getUserId } from '../actions';
 
 class CompaniesScreen extends Component {
+  componentWillMount() {
+    console.log('THISPROPS USERID', this.props.userId);
+    this.props.fetchCompanies(this.props.userId);
+  }
   
   onButtonPress() {
-    // this.props.getUserId();
-    // this.props.fetchCompanies();
+    const companies =  this.props.fetchCompanies(this.props.userId);
   }
   static navigationOptions = ({ navigation }) => {
     return {
@@ -50,4 +53,4 @@ const mapStateToProps = state => {
     userId: state.auth.userId
   }
 }
-export default connect(mapStateToProps, { fetchCompanies, getUserId })(CompaniesScreen);
+export default connect(mapStateToProps, { fetchCompanies })(CompaniesScreen);
