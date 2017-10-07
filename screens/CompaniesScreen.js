@@ -49,8 +49,11 @@ class CompaniesScreen extends Component {
 
 const mapStateToProps = state => {
   console.log('SSSSSSSSSTTTTTTTTTTTATTTTTTTTTTTEEEEEEEE', state.auth.userId);
+  console.log('STTTTTTTTTTTTTTTTTTTTaTTTTTTTTTTTTte',state.companies.companies );
+  console.log('STTTTTTTTTTATTTTTTT', state);
   return {
-    userId: state.auth.userId
+    userId: state.auth.userId,
+    companies: state.companies.companies
   }
 }
 export default connect(mapStateToProps, { fetchCompanies })(CompaniesScreen);

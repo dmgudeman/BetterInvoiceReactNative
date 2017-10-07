@@ -2,7 +2,7 @@
 import { AsyncStorage } from 'react-native';
 import firebase from 'firebase';
 import {
-  FETCH_COMPANIES,
+  // FETCH_COMPANIES,
   FETCH_COMPANIES_SUCCESS
 } from './types';
 
