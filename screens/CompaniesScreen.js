@@ -1,18 +1,25 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ListView } from 'react-native';
 
 import { View, Text } from 'react-native';
 // import { Button } from 'react-native-elements';
 import { tabBarOptions } from 'react-navigation';
 import { AsyncStorage } from 'react-native';
-import { Button } from '../components/common';
+import { Button, Card, CardSection } from '../components/common';
 import { fetchCompanies, getUserId } from '../actions';
+import { Sparky } from '../components/Sparky';
 
 class CompaniesScreen extends Component {
   componentWillMount() {
+    // const ds = new ListView.DataSource({
+    //   rowHasChanged: (r1, r2) => r1 !== r2
+    // })
     console.log('THISPROPS USERID', this.props.userId);
-    this.props.fetchCompanies(this.props.userId);
+    // const x = this.props.fetchCompanies(this.props.userId);
+    console.log('caommmpannnieees', this.props.companies);
+    // this.dataSource = ds.cloneWithRows(this.props.companies);
   }
   
   onButtonPress() {
@@ -30,27 +37,28 @@ class CompaniesScreen extends Component {
         />
   }
 } 
+  renderRow(company) {
+    return <ListItem company={company} />
+
+  }
   render() {
     return (
-      <View>
-        <Text>CompaniesScreen</Text>
-        <Text>CompaniesScreen</Text>
-        <Text>CompaniesScreen</Text>
-        <Text>CompaniesScreen</Text>
-        <Text>CompaniesScreen</Text>
-        <Button onPress={this.onButtonPress.bind(this)}>
-          Send
-        </Button>
-        <Text>UserId= {this.props.userId}</Text>
+    //  <ListView
+    //    dataSource={this.dataSource}
+    //    renderRow={this.renderRow}
+    //  />
+    <View>
+        <Text>The Dog</Text>
       </View>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log('SSSSSSSSSTTTTTTTTTTTATTTTTTTTTTTEEEEEEEE', state.auth.userId);
+  console.log('SSSSSSSSSTTTTTTTTTTTATTTTTTTTTTTEEEEEEEE', state);
   return {
-    userId: state.auth.userId
+    userId: state.auth.userId,
+    // companies: state.CompaniesReducer.companies
   }
 }
 export default connect(mapStateToProps, { fetchCompanies })(CompaniesScreen);

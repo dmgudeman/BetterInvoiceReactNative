@@ -11,14 +11,14 @@ import {
 
 // action creator
 export const facebookLogin = () => async dispatch => {
-  // let token = await AsyncStorage.getItem('fb_token');
-  // if (token) {
-  //   // Dispatch an action FB login is done
-  //   dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
-  // } else {
+  let token = await AsyncStorage.getItem('fb_token');
+  if (token) {
+    // Dispatch an action FB login is done
+    dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
+  } else {
     // Start up FB login process
     doFacebookLogin(dispatch);
-  // }
+  }
 }
 
 // helper function
