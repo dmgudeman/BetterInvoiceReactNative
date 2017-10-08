@@ -9,11 +9,15 @@ import {
   GET_USER_ID
 } from './types';
 
-// action creator
+// asynchronous action creator
 export const facebookLogin = () => async dispatch => {
   let token = await AsyncStorage.getItem('fb_token');
   if (token) {
+<<<<<<< HEAD
     // Dispatch an action FB login is done
+=======
+  //   // Dispatch an action FB login is done
+>>>>>>> sat
     dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
   } else {
     // Start up FB login process
@@ -29,15 +33,9 @@ const doFacebookLogin = async dispatch => {
 
   if (type === 'success'){
      const response = await fetch( `https://graph.facebook.com/me?access_token=${token}`);
-    //  const userId = (await response.json()).id;
      const userId = (await response.json()).id
-     console.log('USSSSSSSSSSERID', userId);
-     const email = await fetch( `https://graph.facebook.com/1929587090588927?access_token=${token}&fields=email`);
-     const credential = firebase.auth.FacebookAuthProvider.credential(token);
-     console.log('CCCCCCCCCCCCCCCCCRRRRRRRRRRRREEEEEEEEEEEE', credential);
-     console.log('emailllllllllll', email);
-     console.log('token', token);
-    //  await AsyncStorage.setItem('fb_id', userId);
+    //  const email = await fetch( `https://graph.facebook.com/1929587090588927?access_token=${token}&fields=email`);
+    //  const credential = firebase.auth.FacebookAuthProvider.credential(token);
      await AsyncStorage.setItem('fb_token', token);
      dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token, userId: userId})
   }
