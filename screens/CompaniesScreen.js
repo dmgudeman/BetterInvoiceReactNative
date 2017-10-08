@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { View, Text } from 'react-native';
+import { View, Text, ListView } from 'react-native';
 // import { Button } from 'react-native-elements';
 import { tabBarOptions } from 'react-navigation';
 import { AsyncStorage } from 'react-native';
@@ -12,8 +12,10 @@ import { fetchCompanies, getUserId } from '../actions';
 class CompaniesScreen extends Component {
   componentWillMount() {
     console.log('THISPROPS USERID', this.props.userId);
-    this.props.fetchCompanies(this.props.userId);
+    const companies =  this.props.fetchCompanies(this.props.userId); 
+    console.log('Companies Screen ComponentWIllMount companies', this.props.companies);
   }
+
   
   onButtonPress() {
     const companies =  this.props.fetchCompanies(this.props.userId);
@@ -48,9 +50,6 @@ class CompaniesScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('SSSSSSSSSTTTTTTTTTTTATTTTTTTTTTTEEEEEEEE', state.auth.userId);
-  console.log('STTTTTTTTTTTTTTTTTTTTaTTTTTTTTTTTTte',state.companies.companies );
-  console.log('STTTTTTTTTTATTTTTTT', state);
   return {
     userId: state.auth.userId,
     companies: state.companies.companies
