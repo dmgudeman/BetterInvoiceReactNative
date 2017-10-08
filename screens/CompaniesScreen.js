@@ -14,7 +14,7 @@ class CompaniesScreen extends Component {
   componentWillMount = () => {
     console.log('THISPROPS USERID', this.props.userId);
     const companies = this.props.fetchCompanies(this.props.userId)
-    .then((data) =>{console.log('DATA', this.props.companies)})
+    .then((data) =>{console.log('componentWillMount CompaniesScreen companies = ', this.props.companies) })
     // console.log('Companies Screen ComponentWIllMount companies', companies);
   }
 
