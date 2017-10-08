@@ -10,15 +10,17 @@ import { Button } from '../components/common';
 import { fetchCompanies, getUserId } from '../actions';
 
 class CompaniesScreen extends Component {
-  componentWillMount() {
+  
+  componentWillMount = () => {
     console.log('THISPROPS USERID', this.props.userId);
-    const companies =  this.props.fetchCompanies(this.props.userId); 
-    console.log('Companies Screen ComponentWIllMount companies', this.props.companies);
+    const companies = this.props.fetchCompanies(this.props.userId)
+    .then((data) =>{console.log('cccccccccccompanies', data)})
+    // console.log('Companies Screen ComponentWIllMount companies', companies);
   }
 
   
   onButtonPress() {
-    const companies =  this.props.fetchCompanies(this.props.userId);
+    const companies =  this.props.fetchCompanies(this.props.userId).then((data) => {console.log('data',  data)});
   }
   static navigationOptions = ({ navigation }) => {
     return {
