@@ -3,22 +3,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { View, Text, ListView } from 'react-native';
-// import { Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { tabBarOptions } from 'react-navigation';
 import { AsyncStorage } from 'react-native';
-import { Button } from '../components/common';
+// import { Button } from '../components/common';
 import * as actions from '../actions';
 
 class CompaniesScreen extends Component {
   
   componentWillMount = () => {
-    console.log('THISPROPS USERID', this.props.userId);
     const companies = this.props.fetchCompanies(this.props.userId)
-    .then((data) =>{console.log('componentWillMount CompaniesScreen companies = ', this.props.companies) })
-    // console.log('Companies Screen ComponentWIllMount companies', companies);
   }
-
-
   
   onButtonPress() {
     const companies =  this.props.fetchCompanies(this.props.userId).then((data) => {console.log('data',  data)});
@@ -36,6 +31,7 @@ class CompaniesScreen extends Component {
   }
 } 
   render() {
+    console.log('IN RENDER COMPANIES SCREEN companies =', this.props.companies);
     return (
       <View>
         <Text>CompaniesScreen</Text>
@@ -43,9 +39,7 @@ class CompaniesScreen extends Component {
         <Text>CompaniesScreen</Text>
         <Text>CompaniesScreen</Text>
         <Text>CompaniesScreen</Text>
-        <Button onPress={this.onButtonPress.bind(this)}>
-          Send
-        </Button>
+        <Button onPress={this.onButtonPress.bind(this)} title="Send"/>
         <Text>UserId= {this.props.userId}</Text>
       </View>
     )
