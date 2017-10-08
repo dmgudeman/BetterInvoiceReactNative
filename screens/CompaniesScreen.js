@@ -7,16 +7,17 @@ import { View, Text, ListView } from 'react-native';
 import { tabBarOptions } from 'react-navigation';
 import { AsyncStorage } from 'react-native';
 import { Button } from '../components/common';
-import { fetchCompanies, getUserId } from '../actions';
+import * as actions from '../actions';
 
 class CompaniesScreen extends Component {
   
   componentWillMount = () => {
     console.log('THISPROPS USERID', this.props.userId);
     const companies = this.props.fetchCompanies(this.props.userId)
-    .then((data) =>{console.log('cccccccccccompanies', data)})
+    .then((data) =>{console.log('DATA', this.props.companies)})
     // console.log('Companies Screen ComponentWIllMount companies', companies);
   }
+
 
   
   onButtonPress() {
@@ -57,4 +58,4 @@ const mapStateToProps = state => {
     companies: state.companies.companies
   }
 }
-export default connect(mapStateToProps, { fetchCompanies })(CompaniesScreen);
+export default connect(mapStateToProps, actions)(CompaniesScreen);

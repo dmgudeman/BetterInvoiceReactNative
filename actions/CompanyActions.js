@@ -10,7 +10,7 @@ import {
 } from './types';
 
 
-export const fetchCompanies = (userId) => async (dispatch) => {
+export const fetchCompanies = (userId) => async dispatch => {
   console.log('fetchCompanies USERID ==== ', userId);
     
    await firebase.database().ref('/users/' + userId + '/companies')
