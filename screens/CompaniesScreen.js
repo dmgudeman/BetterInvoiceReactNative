@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import { View, Text, ListView } from 'react-native';
 import { Button } from 'react-native-elements';
@@ -46,10 +47,16 @@ class CompaniesScreen extends Component {
   }
 }
 
+
+
 const mapStateToProps = state => {
+  const companies = _.map(state.companies.companies, (val, id) => {
+    return { ...val, id};
+  });
+
   return {
     userId: state.auth.userId,
-    companies: state.companies.companies
+    companies
   }
 }
 export default connect(mapStateToProps, actions)(CompaniesScreen);
