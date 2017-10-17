@@ -73,7 +73,6 @@ class CompaniesScreen extends Component {
 }
 
 
-
 const mapStateToProps = state => {
   const companies = _.map(state.companies.companies, (val, id) => {
     return { ...val, id};

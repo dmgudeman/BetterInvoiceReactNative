@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { CardSection } from './common';
+import { CardSection, Card, Button } from './common';
+// import { Card, Button } from 'react-native-elements';
 
 
 class ListItem extends Component {
+  renderCard(company) {
+    return(
+      <Card name={company.name}/>
   
+    )
+
+  }
   render() {
     console.log('IN ListITem this.props = ', this.props);
 
-    const{ name } = this.props.company
+    const{ name, color } = this.props.company
+
 
     return (
-      <CardSection>
-        <Text>{ name }</Text>
-      </CardSection>
+      <Card>
+        <CardSection>
+          <Text>{ name }</Text>
+          <Text>{ color }</Text>
+        </CardSection>
+      </Card>
     );
   }
 }

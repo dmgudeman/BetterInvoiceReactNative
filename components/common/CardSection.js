@@ -18,7 +18,11 @@ const styles = {
     justifyContent: 'flex-start',
     flexDirection: 'row',
     borderColor: '#ddd',
-    position: 'relative'
+    position: 'relative',
+    height: 75,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#007aff',
 
   }
 }
