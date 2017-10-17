@@ -6,10 +6,15 @@ import { CardSection } from './common';
 class ListItem extends Component {
   
   render() {
-    <CardSection>
-      <Text>{this.props.company.name}</Text>
-    </CardSection>
+    console.log('IN ListITem this.props = ', this.props);
 
+    const{ name } = this.props.company
+
+    return (
+      <CardSection>
+        <Text>{ name }</Text>
+      </CardSection>
+    );
   }
 }
 
