@@ -19,11 +19,6 @@ const styles = {
     flexDirection: 'row',
     borderColor: '#ddd',
     position: 'relative',
-    height: 75,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#007aff',
-
   }
 }
 
