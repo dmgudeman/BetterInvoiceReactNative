@@ -26,10 +26,10 @@ class ListItem extends Component {
         </CardSection>
         <CardSection>
           <View style={styles.buttonRowStyle}>
-            <Button style={ styles.buttonContentStyle }>Hi</Button>
-            <Button style={ styles.buttonContentStyle }>Hi</Button>
-            <Button style={ styles.buttonContentStyle }>Hi</Button>
-            <Button style={ styles.buttonContentStyle }>Hi</Button>
+            <Button style={ backgroundColor = 'blue' }>Details</Button>
+            <Button style={ styles.buttonContentStyle }>Invoices</Button>
+            <Button style={ styles.buttonContentStyle }>+Invoice</Button>
+            <Button style={ styles.buttonContentStyle }>+Item</Button>
           </View>
         </CardSection>
        
@@ -60,8 +60,6 @@ const styles = {
   },
   buttonContentStyle: {
     flex: 1,
-    height: 15,
-    width: 30,
   }
 }
 
