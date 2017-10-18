@@ -46,7 +46,7 @@ class CompaniesScreen extends Component {
     title: 'Companies',
     headerRight:
         <Button 
-          title= "Edit Co"
+          title= "+Business"
           onPress={() => {
             navigation.navigate('companyEdit')} 
           }
