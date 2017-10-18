@@ -11,7 +11,7 @@ class AuthScreen extends Component {
 
     // uncomment to clear token from local storage//////////////////////
   
-    // AsyncStorage.removeItem('fb_token');
+    AsyncStorage.removeItem('fb_token');
     console.log("In AUUUUUUUUUUUthScreen",('fb_token)' === true));
   }
 

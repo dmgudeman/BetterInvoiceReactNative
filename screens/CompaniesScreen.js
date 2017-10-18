@@ -16,9 +16,7 @@ class CompaniesScreen extends Component {
   
   componentWillMount = () => {
     const companies = this.props.fetchCompanies(this.props.userId)
-
     this.createDataSource(this.props);
-    
   }
 
   componentWillReceiveProps(nextProps) {
