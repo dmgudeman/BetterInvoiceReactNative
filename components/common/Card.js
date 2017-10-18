@@ -23,7 +23,8 @@ const styles = {
     elevation: 1,
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 20
+    marginTop: 20,
+    backgroundColor: 'green'
   }
 };
 

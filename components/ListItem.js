@@ -45,12 +45,11 @@ const styles = {
     alignItems: 'center',
     marginLeft: 25,
     height: 45,
-    backgroundColor: 'purple',
 
   },
   headerTextStyle: {
     fontSize: 22,
-    backgroundColor: 'pink'
+    color: 'white'
   },
   buttonRowStyle: {
     flex: 1,
@@ -58,13 +57,11 @@ const styles = {
     justifyContent: 'space-around',
     alignItems: 'center',
     height: 30,
-    backgroundColor: 'red',
   },
   buttonContentStyle: {
     flex: 1,
     height: 15,
     width: 30,
-    backgroundColor: 'pink'
   }
 }
 
