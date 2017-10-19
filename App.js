@@ -7,7 +7,7 @@ import firebase from 'firebase';
 
 import store from './store';
 import AuthScreen from './screens/AuthScreen';
-import WelcomeScreen from './screens/WelcomeScreen';
+// import WelcomeScreen from './screens/WelcomeScreen';
 import CompanyEditScreen from './screens/CompanyEditScreen';
 import CompaniesScreen from './screens/CompaniesScreen';
 
@@ -36,7 +36,7 @@ export default class App extends React.Component {
   
   render() {
     const MainNavigator = TabNavigator({ 
-      welcome: { screen: WelcomeScreen},
+      // welcome: { screen: WelcomeScreen},
       auth: { screen: AuthScreen },
       companies: {
         screen: StackNavigator({
