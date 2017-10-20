@@ -16,6 +16,16 @@ class CompaniesScreen extends Component {
   
   componentWillMount() {
     this.props.fetchCompanies(this.props.userId)
+    // this.props.fetchCompanies('1929587090588927')
+    console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
+    console.log('CompaniesScreen componentWillMount this.props', this.props);
+   this.createDataSource(this.props);
+    
+  }
+  componentDidMount() {
+    this.props.fetchCompanies(this.props.userId)
+    // this.props.fetchCompanies('1929587090588927')
+    console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
     console.log('CompaniesScreen componentWillMount this.props', this.props);
    this.createDataSource(this.props);
     
@@ -38,15 +48,20 @@ class CompaniesScreen extends Component {
    }
   
   
-  // onButtonPress() {
-  //   const companies =  this.props.fetchCompanies(this.props.userId).then((data) => {console.log('data',  data)});
-  // }
+  onButtonPress(){
+    // const companies =  this.props.fetchCompanies(this.props.userId).then((data) => {console.log('data',  data)});
+    const companies =  this.props.fetchCompanies('1929587090588927').then((data) => {console.log('data',  data)});
+  //   const companies = this.props.fetchCompanies(this.props.userId)
+  //   console.log('CompaniesScreen componentWillMount this.props', this.props);
+  //  this.createDataSource(this.props);
+   return companies;
+  }
 
   static navigationOptions = ({ navigation }) => {
     return {
     title: 'Companies',
     headerRight:
-        <Button 
+        <Button
           title= "+Business"
           onPress={() => {
             navigation.navigate('companyEdit')} 
@@ -68,12 +83,17 @@ class CompaniesScreen extends Component {
         dataSource={this.dataSource}
         renderRow={this.renderRow}
         
+        
       >
       </ListView>
+  //     <View>
+  //     <Button
+  // title='BUTTON' onPress={this.onButtonPress.bind(this)} />
+  //      </View>
+     
     )
   }
 }
-
 
 const mapStateToProps = state => {
   const companies = _.map(state.companies.companies, (val, id) => {

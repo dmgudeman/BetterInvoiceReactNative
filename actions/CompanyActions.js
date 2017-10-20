@@ -11,11 +11,9 @@ import {
 
 
 export const fetchCompanies = (userId) => async dispatch => {
-  console.log('fetchCompanies USERID ==== ', userId);
-    
    let companies = await firebase.database().ref('/users/' + userId + '/companies')
-      .once('value', snapshot => {
-        console.log('fetchCompanies action snapshot.val()', snapshot.val());
+      .on('value', snapshot => {
+        console.log('COMPANYACTIONS fetchCompanies action snapshot.val()', snapshot.val());
        if (snapshot.val()) {dispatch({type: FETCH_COMPANIES_SUCCESS, payload: snapshot.val()})}
       })
     

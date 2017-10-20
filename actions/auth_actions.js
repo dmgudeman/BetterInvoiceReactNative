@@ -12,9 +12,10 @@ import {
 // asynchronous action creator
 export const facebookLogin = () => async dispatch => {
   let token = await AsyncStorage.getItem('fb_token');
-  if (token) {
+  let userId = await AsyncStorage.getItem('userId')
+  if (token && userId) {
   //   // Dispatch an action FB login is done
-    dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token })
+    dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token, userId})
   } else {
     // Start up FB login process
     doFacebookLogin(dispatch);
@@ -33,6 +34,7 @@ const doFacebookLogin = async dispatch => {
     //  const email = await fetch( `https://graph.facebook.com/1929587090588927?access_token=${token}&fields=email`);
     //  const credential = firebase.auth.FacebookAuthProvider.credential(token);
      await AsyncStorage.setItem('fb_token', token);
+     await AsyncStorage.setItem('userId', userId)
      dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token, userId: userId})
   }
   else if (type === 'cancel'){
