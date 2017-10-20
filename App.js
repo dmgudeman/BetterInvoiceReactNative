@@ -35,17 +35,17 @@ export default class App extends React.Component {
     }
   
   render() {
-    const MainNavigator = TabNavigator({ 
+    const MainNavigator = StackNavigator({ 
       // welcome: { screen: WelcomeScreen},
       auth: { screen: AuthScreen },
-      companies: {
-        screen: StackNavigator({
+      // companies: {
+      //   screen: StackNavigator({
         companies: {screen: CompaniesScreen },
         companyEdit: { screen: CompanyEditScreen }
-        })
-      }
+      //   })
+      // }
     }, {
-      lazy: true
+      lazy: false
     });
 
     return (

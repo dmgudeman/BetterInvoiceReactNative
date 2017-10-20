@@ -8,10 +8,11 @@ class AuthScreen extends Component {
   componentDidMount() {
     this.props.facebookLogin();
     this.onAuthComplete(this.props);
-
+    
     // uncomment to clear token from local storage//////////////////////
   
     AsyncStorage.removeItem('fb_token');
+    
     console.log("In AUUUUUUUUUUUthScreen",('fb_token)' === true));
   }
 

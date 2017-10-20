@@ -14,16 +14,17 @@ import ListItem from '../components/ListItem'
 
 class CompaniesScreen extends Component {
   
-  componentWillMount = () => {
-    const companies = this.props.fetchCompanies(this.props.userId)
-
-    this.createDataSource(this.props);
+  componentWillMount() {
+    this.props.fetchCompanies(this.props.userId)
+    console.log('CompaniesScreen componentWillMount this.props', this.props);
+   this.createDataSource(this.props);
     
   }
-
+  
   componentWillReceiveProps(nextProps) {
     // nextProps are the props that the component will be rendered withi
     // this.props are the old set of props
+    console.log('===============componentWillRecieveProps nextProps', nextProps);
     this.createDataSource(nextProps);
   }
 
@@ -37,9 +38,9 @@ class CompaniesScreen extends Component {
    }
   
   
-  onButtonPress() {
-    const companies =  this.props.fetchCompanies(this.props.userId).then((data) => {console.log('data',  data)});
-  }
+  // onButtonPress() {
+  //   const companies =  this.props.fetchCompanies(this.props.userId).then((data) => {console.log('data',  data)});
+  // }
 
   static navigationOptions = ({ navigation }) => {
     return {
@@ -55,17 +56,18 @@ class CompaniesScreen extends Component {
   }
   
   renderRow(company) {
-    return <ListItem company={company}/>
+    return <ListItem company={company} />
   }
 
 
   render() {
-    console.log('IN RENDER COMPANIES SCREEN companies =', this.props.companies);
+    console.log('IN RENDER COMPANIES SCREEN this.props =', this.props);
     return (
       <ListView
         enableEmptySections
         dataSource={this.dataSource}
         renderRow={this.renderRow}
+        
       >
       </ListView>
     )

@@ -8,7 +8,7 @@ import {
 export default function(state = {}, action) {
   switch (action.type) {
     case FACEBOOK_LOGIN_SUCCESS:
-      console.log("LLLLLLLLLLLLLLLL", action.userId);
+      console.log("LO", action.userId);
       return { ...state,  token: action.payload, userId: action.userId };
     case FACEBOOK_LOGIN_FAIL:
       return { ...state, token:  null };
