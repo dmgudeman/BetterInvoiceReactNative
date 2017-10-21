@@ -16,6 +16,7 @@ class CompanyEditScreen extends Component {
         <Button
           title= "+Business"
           onPress={() => {
+            console.log('Button Pressed');
             navigation.navigate('itemEdit')} 
           }
         />

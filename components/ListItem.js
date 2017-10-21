@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { CardSection, Card, Button, Header } from './common';
 // import { Card, Button } from 'react-native-elements';
 import ItemEditScreen from '../screens/ItemEditScreen'; 
-import { StackNavigator } from 'react-navigation';
+import { MainNavigator } from '../App';
 
 class ListItem extends Component {
   

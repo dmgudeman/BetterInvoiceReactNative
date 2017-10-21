@@ -14,50 +14,33 @@ import { MainNavigator } from '../App';
 
 
 class CompaniesScreen extends Component {
+  navigator 
+  
+  constructor(props) {
+    super(props);
+  }
   
   componentWillMount() {
     this.props.fetchCompanies(this.props.userId)
     // this.props.fetchCompanies('1929587090588927')
     // console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
-    // console.log('CompaniesScreen componentWillMount this.props', this.props);
-   this.createDataSource(this.props);
+    console.log('CompaniesScreen componentWillMount this.props', this.props);
+    console.log('CompaniesScreen componentWillMount state ', this.state);
+    // this.createDataSource(this.props);
     
   }
   componentDidMount() {
     this.props.fetchCompanies(this.props.userId)
     // this.props.fetchCompanies('1929587090588927')
     // console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
-    // console.log('CompaniesScreen componentWillMount this.props', this.props);
-   this.createDataSource(this.props);
+    console.log('CompaniesScreen componentWillMount this.props', this.props);
+    this.navigator = this.props.navigation;
+    console.log('CompaniesScreen componenWillMount this.navigator', this.navigator);
+  //  this.createDataSource(this.props);
     
   }
   
-  componentWillReceiveProps(nextProps) {
-    // nextProps are the props that the component will be rendered withi
-    // this.props are the old set of props
-    // console.log('===============componentWillRecieveProps nextProps', nextProps);
-    this.createDataSource(nextProps);
-  }
-
-  createDataSource({ companies }) {
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-    this.dataSource = ds.cloneWithRows(companies);
-    console.log('dataSource is typeOf array =', Array.isArray(this.dataSource));
-    console.log('dataSource = ', this.dataSource);
-   }
-  
-  
-  onButtonPress(){
-    // const companies =  this.props.fetchCompanies(this.props.userId).then((data) => {console.log('data',  data)});
-    const companies =  this.props.fetchCompanies('1929587090588927').then((data) => {console.log('data',  data)});
-  //   const companies = this.props.fetchCompanies(this.props.userId)
-  //   console.log('CompaniesScreen componentWillMount this.props', this.props);
-  //  this.createDataSource(this.props);
-   return companies;
-  }
-
+ 
   static navigationOptions = ({ navigation }) => {
     return {
     title: 'Companies',
@@ -65,42 +48,31 @@ class CompaniesScreen extends Component {
         <Button
           title= "+Business"
           onPress={() => {
-            navigation.navigate('secondary')} 
+            navigation.navigate('test')} 
           }
         />
     }
   }
 
-  renderRow(company, navigation){
-    console.log('CompaniesScreen renderRow navigation');
-    return (
-           <View>
-            <ListItem company={company}/>
-            </View>
-    )
+  renderItem({item, index}) {
+    return  <ListItem 
+             company={item}
+             />
   }
 
-
   render() {
-    console.log('CompaniesScreen render  this.props =', this.props.navigation);
+    console.log('CompaniesScreen render  this.props.companies =', this.props.companies);
+    console.log('CompaniesScreen render  this.props.navigation =', this.props.navigation);
+
     const navigation = this.props.navigation
     return (
-      <ListView
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={this.renderRow}
-      >
-      
-      </ListView>
-  //     <View>
-  //     <Button
-  // title='BUTTON' onPress={this.onButtonPress.bind(this)} />
-  //      </View>
-      // <FlatList
-      //   data={this.dataSource}
-      //   renderRow={this.renderRow}
-
-      // />
+      <View style={flex= 1}>
+        <FlatList 
+          data = {this.props.companies}
+          renderItem={this.renderItem}
+        />
+      </View>
+    
      
     )
   }

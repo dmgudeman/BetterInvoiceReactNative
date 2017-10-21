@@ -20,17 +20,16 @@ export const MainNavigator = StackNavigator({
   // companies: {
   //   screen: StackNavigator({
     companies: {screen: CompaniesScreen },
-    secondary: {
-      screen: StackNavigator({
-        companyEdit: { screen: CompanyEditScreen },
-        tertiary:{ 
-          screen: StackNavigator({
-              test: {screen: TestScreen},
-              itemEdit: { screen: ItemEditScreen },
-           })
-          }
-      })
-    }
+    companyEdit: { screen: CompanyEditScreen },
+    test: {screen: TestScreen},
+    ListItem: {
+      screen: ListItem,
+      navigationOptions: {
+        title: 'Hi'
+      }
+    },
+    itemEdit: { screen: ItemEditScreen },
+          
   //   })
   // }
 }, {
