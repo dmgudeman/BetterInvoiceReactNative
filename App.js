@@ -15,23 +15,11 @@ import ListItem from './components/ListItem';
 import TestScreen from './screens/TestScreen';
 
 export const MainNavigator = StackNavigator({ 
-  // welcome: { creen: WelcomeScreen},
   auth: { screen: AuthScreen },
-  // companies: {
-  //   screen: StackNavigator({
-    companies: {screen: CompaniesScreen },
-    secondary: {screen: StackNavigator({
-      companyEdit: { screen: CompanyEditScreen },
-      tertiary: { screen: StackNavigator({
-        test: {screen: TestScreen},
-        itemEdit: { screen: ItemEditScreen },
-      })}
-      
-
-    })},
-      
-    ListItem: { screen: ListItem, navigationOptions: { title: 'Hi' }
-    },
+  companies: {screen: CompaniesScreen },
+  companyEdit: { screen: CompanyEditScreen },
+  itemEdit: { screen: ItemEditScreen },
+  ListItem: { screen: ListItem },
           
   //   })
   // }
