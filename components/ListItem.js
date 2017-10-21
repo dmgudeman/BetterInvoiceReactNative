@@ -7,14 +7,14 @@ import { MainNavigator } from '../App';
 
 class ListItem extends Component {
   
-  componentWillMount() {
-    console.log('ListItem componentWillMount this.props = ', this.props);
-  }
+  // componentWillMount() {
+  //   console.log('ListItem componentWillMount this.props = ', this.props);
+  // }
 
-  constructor(props) {
-    super(props)
-    console.log('ListItem constructor this.props', this.props);
-  }
+  // constructor(props) {
+  //   super(props)
+  //   console.log('ListItem constructor this.props', this.props);
+  // }
 
   
   renderCard(company) {
@@ -24,7 +24,7 @@ class ListItem extends Component {
 
   }
   render() {
-    console.log('ListItem renderr this.props = ', this.props);
+    // console.log('ListItem renderr this.props = ', this.props);
     const { name, color } = this.props.company
     return (
       <Card>

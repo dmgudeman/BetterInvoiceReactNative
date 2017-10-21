@@ -20,18 +20,10 @@ export const MainNavigator = StackNavigator({
   companyEdit: { screen: CompanyEditScreen },
   itemEdit: { screen: ItemEditScreen },
   ListItem: { screen: ListItem },
-          
-  //   })
-  // }
 }, {
   lazy: false
 });
 
-export const ChildNavigator = StackNavigator({
-   
-    itemEdit: { screen: ItemEditScreen}
-
-})
 export default class App extends React.Component {
   state = { loggedIn: null };
   
