@@ -4,7 +4,9 @@ import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 
 class TestScreen extends Component {
+
   render() {
+
     return (
       <View>
         <Text>TestScreen</Text>
@@ -13,9 +15,9 @@ class TestScreen extends Component {
         <Text>TestScreen</Text>
         <Text>TestScreen</Text>
         <Button
-          title= "+Business TEST"
+          title= "ITEM EDIT"
           onPress={() => {
-            navigation.navigate('itemEdit')} 
+            this.props.navigation.navigate('itemEdit')} 
           }
         />
       </View>

@@ -48,7 +48,7 @@ class CompaniesScreen extends Component {
         <Button
           title= "+Business"
           onPress={() => {
-            navigation.navigate('test')} 
+            navigation.navigate('secondary')} 
           }
         />
     }
@@ -71,6 +71,7 @@ class CompaniesScreen extends Component {
           data = {this.props.companies}
           renderItem={this.renderItem}
         />
+        
       </View>
     
      

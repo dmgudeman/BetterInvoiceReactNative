@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import TestScreen from './TestScreen';
-import {ChildNavigator} from '../App';
 
 class CompanyEditScreen extends Component {
   render() {
@@ -11,13 +10,11 @@ class CompanyEditScreen extends Component {
     return (
       <View>
         <Text>CompanyEditScreen</Text>
-        <TestScreen />
-        <ChildNavigator/>
         <Button
-          title= "+Business"
+          title= "TEST"
           onPress={() => {
             console.log('Button Pressed');
-            navigation.navigate('itemEdit')} 
+            this.props.navigation.navigate('tertiary')} 
           }
         />
       </View>
