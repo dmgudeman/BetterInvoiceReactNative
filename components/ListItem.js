@@ -2,21 +2,30 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { CardSection, Card, Button, Header } from './common';
 // import { Card, Button } from 'react-native-elements';
-
+import ItemEditScreen from '../screens/ItemEditScreen'; 
+import { StackNavigator } from 'react-navigation';
 
 class ListItem extends Component {
   
+  componentWillMount() {
+    console.log('ListItem componentWillMount this.props = ', this.props);
+  }
+
+  constructor(props) {
+    super(props)
+    console.log('ListItem constructor this.props', this.props);
+  }
+
   
   renderCard(company) {
     return(
       <Card name={company.name}/>
-  
     )
 
   }
   render() {
-    console.log('IN ListITem this.props = ', this.props);
-    const{ name, color } = this.props.company
+    console.log('ListItem renderr this.props = ', this.props);
+    const { name, color } = this.props.company
     return (
       <Card>
         <CardSection >
@@ -29,7 +38,8 @@ class ListItem extends Component {
             <Button style={ backgroundColor = 'blue' }>Details</Button>
             <Button style={ styles.buttonContentStyle }>Invoices</Button>
             <Button style={ styles.buttonContentStyle }>+Invoice</Button>
-            <Button style={ styles.buttonContentStyle }>+Item</Button>
+            <Button style={ styles.buttonContentStyle }  onPress={() => {
+            navigation.navigate('editItem')} }>+Item</Button>
           </View>
         </CardSection>
        

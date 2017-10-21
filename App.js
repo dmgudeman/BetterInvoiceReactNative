@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry} from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
@@ -10,7 +10,38 @@ import AuthScreen from './screens/AuthScreen';
 // import WelcomeScreen from './screens/WelcomeScreen';
 import CompanyEditScreen from './screens/CompanyEditScreen';
 import CompaniesScreen from './screens/CompaniesScreen';
+import ItemEditScreen from './screens/ItemEditScreen';
+import ListItem from './components/ListItem';
+import TestScreen from './screens/TestScreen';
 
+export const MainNavigator = StackNavigator({ 
+  // welcome: { creen: WelcomeScreen},
+  auth: { screen: AuthScreen },
+  // companies: {
+  //   screen: StackNavigator({
+    companies: {screen: CompaniesScreen },
+    secondary: {
+      screen: StackNavigator({
+        companyEdit: { screen: CompanyEditScreen },
+        tertiary:{ 
+          screen: StackNavigator({
+              test: {screen: TestScreen},
+              itemEdit: { screen: ItemEditScreen },
+           })
+          }
+      })
+    }
+  //   })
+  // }
+}, {
+  lazy: false
+});
+
+export const ChildNavigator = StackNavigator({
+   
+    itemEdit: { screen: ItemEditScreen}
+
+})
 export default class App extends React.Component {
   state = { loggedIn: null };
   
@@ -35,19 +66,7 @@ export default class App extends React.Component {
     }
   
   render() {
-    const MainNavigator = StackNavigator({ 
-      // welcome: { screen: WelcomeScreen},
-      auth: { screen: AuthScreen },
-      // companies: {
-      //   screen: StackNavigator({
-        companies: {screen: CompaniesScreen },
-        companyEdit: { screen: CompanyEditScreen }
-      //   })
-      // }
-    }, {
-      lazy: false
-    });
-
+    
     return (
       <Provider store={store}>
         <MainNavigator />

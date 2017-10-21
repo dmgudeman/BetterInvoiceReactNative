@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { View, Text, ListView } from 'react-native';
+import { View, Text, ListView, FlatList } from 'react-native';
 import { Button } from 'react-native-elements';
 import { tabBarOptions } from 'react-navigation';
 import { AsyncStorage } from 'react-native';
 // import { Button } from '../components/common';
 import * as actions from '../actions';
 import ListItem from '../components/ListItem'
+import { MainNavigator } from '../App';
 
 
 class CompaniesScreen extends Component {
@@ -17,16 +18,16 @@ class CompaniesScreen extends Component {
   componentWillMount() {
     this.props.fetchCompanies(this.props.userId)
     // this.props.fetchCompanies('1929587090588927')
-    console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
-    console.log('CompaniesScreen componentWillMount this.props', this.props);
+    // console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
+    // console.log('CompaniesScreen componentWillMount this.props', this.props);
    this.createDataSource(this.props);
     
   }
   componentDidMount() {
     this.props.fetchCompanies(this.props.userId)
     // this.props.fetchCompanies('1929587090588927')
-    console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
-    console.log('CompaniesScreen componentWillMount this.props', this.props);
+    // console.log('CompaniesScreen componentWillMount this.props.userId', this.props.userId);
+    // console.log('CompaniesScreen componentWillMount this.props', this.props);
    this.createDataSource(this.props);
     
   }
@@ -34,7 +35,7 @@ class CompaniesScreen extends Component {
   componentWillReceiveProps(nextProps) {
     // nextProps are the props that the component will be rendered withi
     // this.props are the old set of props
-    console.log('===============componentWillRecieveProps nextProps', nextProps);
+    // console.log('===============componentWillRecieveProps nextProps', nextProps);
     this.createDataSource(nextProps);
   }
 
@@ -64,32 +65,42 @@ class CompaniesScreen extends Component {
         <Button
           title= "+Business"
           onPress={() => {
-            navigation.navigate('companyEdit')} 
+            navigation.navigate('secondary')} 
           }
         />
     }
   }
-  
-  renderRow(company) {
-    return <ListItem company={company} />
+
+  renderRow(company, navigation){
+    console.log('CompaniesScreen renderRow navigation');
+    return (
+           <View>
+            <ListItem company={company}/>
+            </View>
+    )
   }
 
 
   render() {
-    console.log('IN RENDER COMPANIES SCREEN this.props =', this.props);
+    console.log('CompaniesScreen render  this.props =', this.props.navigation);
+    const navigation = this.props.navigation
     return (
       <ListView
         enableEmptySections
         dataSource={this.dataSource}
         renderRow={this.renderRow}
-        
-        
       >
+      
       </ListView>
   //     <View>
   //     <Button
   // title='BUTTON' onPress={this.onButtonPress.bind(this)} />
   //      </View>
+      // <FlatList
+      //   data={this.dataSource}
+      //   renderRow={this.renderRow}
+
+      // />
      
     )
   }
@@ -105,4 +116,5 @@ const mapStateToProps = state => {
     companies
   }
 }
+
 export default connect(mapStateToProps, actions)(CompaniesScreen);
