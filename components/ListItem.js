@@ -23,14 +23,27 @@ class ListItem extends Component {
     )
 
   }
+  convertColor(color) {
+
+    if(color === 'red') {
+      return '#F11C1C'
+    }
+    return '#1F1313'
+
+  }
   render() {
     // console.log('ListItem renderr this.props = ', this.props);
     const { navigate } = this.props.navigation
     const { name, color } = this.props.company
+    console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', `'${color}'`);
+    const bgColor = this.convertColor(color); 
+    console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', bgColor);
+    console.log('IS IS A STRING', (typeof bgColor === 'string'));
+    console.log('IS IS A STRING', (typeof `'${bgColor}'` === 'string'));
     return (
-      <Card>
-        <CardSection >
-          <View style={styles.headerContentStyle}>
+      <Card color={color}>
+        <CardSection style = {{backgroundColor: 'red' }}>
+          <View style={ styles.headerContentStyle}>
             <Text style={styles.headerTextStyle}>{ name }</Text>
           </View>
         </CardSection>
