@@ -54,10 +54,12 @@ class CompaniesScreen extends Component {
     }
   }
 
-  renderItem({item, index}) {
-    return  <ListItem 
-             company={item}
-             />
+  renderItem =({item, index})=> {
+    console.log('CompaniesScreen renderItem  this.props =', this.props);
+    
+    return  (
+    <ListItem company={item} navigation={this.props.navigation}/>
+    )
   }
 
   render() {
@@ -66,7 +68,7 @@ class CompaniesScreen extends Component {
 
     const navigation = this.props.navigation
     return (
-      <View style={flex= 1}>
+     <View> 
         <FlatList 
           data = {this.props.companies}
           renderItem={this.renderItem}

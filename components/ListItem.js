@@ -39,7 +39,7 @@ class ListItem extends Component {
             <Button style={ styles.buttonContentStyle }>Invoices</Button>
             <Button style={ styles.buttonContentStyle }>+Invoice</Button>
             <Button style={ styles.buttonContentStyle }  onPress={() => {
-            navigation.navigate('editItem')} }>+Item</Button>
+            this.props.navigation.navigate('itemEdit')} }>+Item</Button>
           </View>
         </CardSection>
        
