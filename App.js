@@ -11,6 +11,9 @@ import AuthScreen from './screens/AuthScreen';
 import CompanyEditScreen from './screens/CompanyEditScreen';
 import CompaniesScreen from './screens/CompaniesScreen';
 import ItemEditScreen from './screens/ItemEditScreen';
+import ItemsScreen from './screens/ItemsScreen';
+import InvoiceEditScreen from './screens/InvoiceEditScreen';
+import InvoicesScreen from './screens/InvoicesScreen';
 import ListItem from './components/ListItem';
 import TestScreen from './screens/TestScreen';
 
@@ -19,7 +22,11 @@ export const MainNavigator = StackNavigator({
   companies: {screen: CompaniesScreen },
   companyEdit: { screen: CompanyEditScreen },
   itemEdit: { screen: ItemEditScreen },
+  items: {screen: ItemsScreen },
   ListItem: { screen: ListItem },
+  invoices: { screen: InvoicesScreen },
+  invoiceEdit: { screen: InvoiceEditScreen },
+
 }, {
   lazy: false
 });

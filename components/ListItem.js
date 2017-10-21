@@ -25,6 +25,7 @@ class ListItem extends Component {
   }
   render() {
     // console.log('ListItem renderr this.props = ', this.props);
+    const { navigate } = this.props.navigation
     const { name, color } = this.props.company
     return (
       <Card>
@@ -35,11 +36,10 @@ class ListItem extends Component {
         </CardSection>
         <CardSection>
           <View style={styles.buttonRowStyle}>
-            <Button style={ backgroundColor = 'blue' }>Details</Button>
-            <Button style={ styles.buttonContentStyle }>Invoices</Button>
-            <Button style={ styles.buttonContentStyle }>+Invoice</Button>
-            <Button style={ styles.buttonContentStyle }  onPress={() => {
-            this.props.navigation.navigate('itemEdit')} }>+Item</Button>
+            <Button style={ styles.buttonContentStyle } onPress={() => { navigate('items')} }>Details</Button>
+            <Button style={ styles.buttonContentStyle } onPress={() => { navigate('invoices')} }>Invoices</Button>
+            <Button style={ styles.buttonContentStyle } onPress={() => { navigate('invoiceEdit')} }>+Invoice</Button>
+            <Button style={ styles.buttonContentStyle } onPress={() => { navigate('itemEdit')} }>+Item</Button>
           </View>
         </CardSection>
        
