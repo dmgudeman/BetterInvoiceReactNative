@@ -35,14 +35,14 @@ class ListItem extends Component {
     // console.log('ListItem renderr this.props = ', this.props);
     const { navigate } = this.props.navigation
     const { name, color } = this.props.company
-    console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', `'${color}'`);
-    const bgColor = this.convertColor(color); 
-    console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', bgColor);
-    console.log('IS IS A STRING', (typeof bgColor === 'string'));
-    console.log('IS IS A STRING', (typeof `'${bgColor}'` === 'string'));
+    // console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', `'${color}'`);
+    // const bgColor = this.convertColor(color); 
+    // console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', bgColor);
+    // console.log('IS IS A STRING', (typeof bgColor === 'string'));
+    // console.log('IS IS A STRING', (typeof `'${bgColor}'` === 'string'));
     return (
       <Card color={color}>
-        <CardSection style = {{backgroundColor: 'red' }}>
+        <CardSection>
           <View style={ styles.headerContentStyle}>
             <Text style={styles.headerTextStyle}>{ name }</Text>
           </View>
