@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import {ITEM_UPDATE, ITEM_CREATE} from './types';
 import moment from 'moment';
 
-export const itemCreate = ({fUserId, coId, date, hours, amount, description}) => async dispatch => {
+export const itemCreate = ({fUserId, coId, date, hours, amount, description, total}) => async dispatch => {
   
-  let payload = {fUserId, coId, date, hours, amount, description}
+  let payload = {fUserId, coId, date, hours, amount, description, total}
   payload.date = moment(payload.date).format();
   
   console.log('PAYLOAD', payload);

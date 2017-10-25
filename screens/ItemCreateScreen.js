@@ -49,13 +49,12 @@ class ItemCreateScreen extends Component {
   }
 
   onSubmit = () => {
-    // let total = (
-    //   (hours - 0 ) * (this.company.hourly - 0)) + (this.myform.value.amount - 0);
-    // payload.total = total;
-    
-    const { fUserId, coId, date, hours, amount, description } = this.props
-    console.log('date111111111', fUserId, coId, date, hours, amount, description);
-    this.props.itemCreate({ fUserId, coId, date, hours, amount, description })
+    const { fUserId, coId, date, hours, amount, description, hourly } = this.props
+    let total = (
+      (hours - 0 ) * (hourly - 0)) + (amount - 0);
+   
+    console.log('date111111111', fUserId, coId, date, hours, amount, description, total);
+    this.props.itemCreate({ fUserId, coId, date, hours, amount, description, total})
   }
 
   render() {
@@ -111,9 +110,9 @@ class ItemCreateScreen extends Component {
 
 const mapStateToProps = state => {
   const coId = Object.keys(state.companies.companies)[0];
-  console.log('state', state);
-  console.log('state.companies',Object.keys(state.companies.companies)[0]);
-  console.log('state.companies.companies[0].hourly',state.companies.companies[coId].hourly);
+  // console.log('state', state);
+  // console.log('state.companies',Object.keys(state.companies.companies)[0]);
+  // console.log('state.companies.companies[0].hourly',state.companies.companies[coId].hourly);
   const { date, hours, amount, description } = state.item;
   const  fUserId = state.auth.fUserId;
   const hourly = state.companies.companies[coId].hourly;
