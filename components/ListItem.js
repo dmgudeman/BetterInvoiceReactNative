@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import {NavigationActions} from 'react-navigation';
 import { CardSection, Card, Button, Header } from './common';
 // import { Card, Button } from 'react-native-elements';
 import ItemEditScreen from '../screens/ItemEditScreen'; 
 import { MainNavigator } from '../App';
 
+const setParamsAction = (params, key ) => {NavigationActions.setParams({
+  params, key
+})}
 class ListItem extends Component {
   
   // componentWillMount() {
@@ -31,20 +35,19 @@ class ListItem extends Component {
     return '#1F1313'
 
   }
+
+  
   render() {
     // console.log('ListItem renderr this.props = ', this.props);
     const { navigate } = this.props.navigation
-    const { name, color } = this.props.company
-    // console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', `'${color}'`);
-    // const bgColor = this.convertColor(color); 
-    // console.log('ListItem COOOOOOOOOOOLLLLLLLLLLLLLLOOOOOOOOOOOOR', bgColor);
-    // console.log('IS IS A STRING', (typeof bgColor === 'string'));
-    // console.log('IS IS A STRING', (typeof `'${bgColor}'` === 'string'));
+    // const { name, color, coId } = this.props.company
+    console.log('TTTTTTTTTTTTTThis this.props', this.props);
+
     return (
-      <Card color={color}>
+      <Card color={this.props.company.color}>
         <CardSection>
           <View style={ styles.headerContentStyle}>
-            <Text style={styles.headerTextStyle}>{ name }</Text>
+            <Text style={styles.headerTextStyle}>{ this.props.company.name }</Text>
           </View>
         </CardSection>
         <CardSection>
@@ -52,7 +55,8 @@ class ListItem extends Component {
             <Button style={ styles.buttonContentStyle } onPress={() => { navigate('items')} }>Details</Button>
             <Button style={ styles.buttonContentStyle } onPress={() => { navigate('invoices')} }>Invoices</Button>
             <Button style={ styles.buttonContentStyle } onPress={() => { navigate('invoiceEdit')} }>+Invoice</Button>
-            <Button style={ styles.buttonContentStyle } onPress={() => { navigate('itemEdit')} }>+Item</Button>
+            <Button style={ styles.buttonContentStyle } onPress={() => { 
+              navigate('itemCreate',{params: { coId: this.props.company.id}} )}}>+Item</Button>
           </View>
         </CardSection>
        

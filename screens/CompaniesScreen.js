@@ -15,15 +15,14 @@ class CompaniesScreen extends Component {
   }
   
   componentWillMount() {
-    this.props.fetchCompanies(this.props.userId)
+    this.props.fetchCompanies(this.props.fUserId)
     // console.log('CompaniesScreen componentWillMount this.props', this.props);
   }
   componentDidMount() {
-    this.props.fetchCompanies(this.props.userId)
+    this.props.fetchCompanies(this.props.fUserId)
     // console.log('CompaniesScreen componentWillMount this.props', this.props);
   }
   
- 
   static navigationOptions = ({ navigation }) => {
     return {
     title: 'Companies',
@@ -51,6 +50,7 @@ class CompaniesScreen extends Component {
      <View> 
         <FlatList 
           data = {this.props.companies}
+          keyExtractor={this._keyExtractor}
           renderItem={this.renderItem}
         />
       </View>
@@ -59,12 +59,13 @@ class CompaniesScreen extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('COmpanies screen state.auth', state.auth);
   const companies = _.map(state.companies.companies, (val, id) => {
     return { ...val, id};
   });
 
   return {
-    userId: state.auth.userId,
+    fUserId: state.auth.fUserId,
     companies
   }
 }

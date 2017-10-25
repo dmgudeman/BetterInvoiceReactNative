@@ -14,17 +14,17 @@ class AuthScreen extends Component {
   
     // AsyncStorage.removeItem('fb_token');
     
-    console.log("AuthScreen componentDidMount this.props",this.props);
+    // console.log("AuthScreen componentDidMount this.props",this.props);
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('AuthScreen componentWillReceiveProps nextProps =', nextProps);
+    // console.log('AuthScreen componentWillReceiveProps nextProps =', nextProps);
     this.onAuthComplete(nextProps);
   }
 
   onAuthComplete(props) {
-    console.log('AuthScreen onAuthComplete props.token.token  ', props.token.token);
-    console.log('AuthScreen onAuthComplete props.token.userId ', props.token.userId);
+    // console.log('AuthScreen onAuthComplete props.token.token  ', props.token.token);
+    // console.log('AuthScreen onAuthComplete props.token.userId ', props.token.userId);
     if (props.token) {
       this.props.navigation.navigate('companies');
     }

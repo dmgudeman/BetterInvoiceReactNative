@@ -4,14 +4,14 @@ import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import TestScreen from './TestScreen';
 
-class CompanyEditScreen extends Component {
+class CompanyCreateScreen extends Component {
 
   
   render() {
-    console.log('CompanyEditScreen render this.props', this.props);
+    console.log('CompanyCreateScreen render this.props', this.props);
     return (
       <View>
-        <Text>CompanyEditScreen</Text>
+        <Text>CompanyCreateScreen</Text>
         <Button
           title= "TEST"
           onPress={() => {
@@ -23,4 +23,4 @@ class CompanyEditScreen extends Component {
     )
   }
 }
-export default CompanyEditScreen;
+export default CompanyCreateScreen;

@@ -5,3 +5,6 @@ export const GET_USER_ID = 'get_user_id';
 
 // export const FETCH_COMPANIES ='fetch_companies';
 export const FETCH_COMPANIES_SUCCESS ='fetch_companies_success';
+
+export const ITEM_CREATE = 'item_create';
+export const ITEM_UPDATE = 'item_update';
