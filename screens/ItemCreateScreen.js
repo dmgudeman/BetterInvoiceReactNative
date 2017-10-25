@@ -49,6 +49,9 @@ class ItemCreateScreen extends Component {
   }
 
   onSubmit = () => {
+    // let total = (
+    //   (hours - 0 ) * (this.company.hourly - 0)) + (this.myform.value.amount - 0);
+    // payload.total = total;
     
     const { fUserId, coId, date, hours, amount, description } = this.props
     console.log('date111111111', fUserId, coId, date, hours, amount, description);
@@ -60,23 +63,23 @@ class ItemCreateScreen extends Component {
       <View>
         <FormLabel>Date</FormLabel>
         <DatePicker
-        style={{width: 200}}
-        date={this.props.date}
-        mode="date"
-        placeholder="select date"
-        format="LL"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
+          style={{width: 200}}
+          date={this.props.date}
+          mode="date"
+          placeholder="select date"
+          format="LL"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
         }}
         onDateChange={(value) => {
           this.props.itemUpdate('date',value )}
@@ -107,12 +110,15 @@ class ItemCreateScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state', state);
-  console.log('state.companies',Object.keys(state.companies.companies)[0])
-  const { date, hours, amount, description } = state.item
-  const  fUserId = state.auth.fUserId
   const coId = Object.keys(state.companies.companies)[0];
+  console.log('state', state);
+  console.log('state.companies',Object.keys(state.companies.companies)[0]);
+  console.log('state.companies.companies[0].hourly',state.companies.companies[coId].hourly);
+  const { date, hours, amount, description } = state.item;
+  const  fUserId = state.auth.fUserId;
+  const hourly = state.companies.companies[coId].hourly;
+ 
   console.log('coIdddddddddddd', coId);
-  return { date, hours, amount, description, fUserId, coId}
+  return { date, hours, amount, description, hourly, fUserId, coId};
 }
 export default connect(mapStateToProps, actions)(ItemCreateScreen);

@@ -1,10 +1,13 @@
 import firebase from 'firebase';
 import thunk from 'redux-thunk';
 import {ITEM_UPDATE, ITEM_CREATE} from './types';
-
+import moment from 'moment';
 
 export const itemCreate = ({fUserId, coId, date, hours, amount, description}) => async dispatch => {
+  
   let payload = {fUserId, coId, date, hours, amount, description}
+  payload.date = moment(payload.date).format();
+  
   console.log('PAYLOAD', payload);
   console.log('fUserId', fUserId);
   let newItemKey = await firebase.database().ref().child('companies').child('items').push().key;
