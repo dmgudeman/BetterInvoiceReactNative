@@ -43,10 +43,6 @@ class ItemCreateScreen extends Component {
     // })
   }
   
- 
-  dateChange() {
-    console.log('date change');
-  }
 
   onSubmit = () => {
     const { fUserId, coId, date, hours, amount, description, hourly } = this.props
@@ -55,6 +51,7 @@ class ItemCreateScreen extends Component {
    
     console.log('date111111111', fUserId, coId, date, hours, amount, description, total);
     this.props.itemCreate({ fUserId, coId, date, hours, amount, description, total})
+    this.props.navigation.goBack();
   }
 
   render() {
