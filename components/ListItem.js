@@ -6,42 +6,16 @@ import { CardSection, Card, Button, Header } from './common';
 import ItemEditScreen from '../screens/ItemEditScreen'; 
 import { MainNavigator } from '../App';
 
-const setParamsAction = (params, key ) => {NavigationActions.setParams({
+const setParamsAction = ( params, key ) => {NavigationActions.setParams({
   params, key
 })}
 class ListItem extends Component {
-  
-  // componentWillMount() {
-  //   console.log('ListItem componentWillMount this.props = ', this.props);
-  // }
-
-  // constructor(props) {
-  //   super(props)
-  //   console.log('ListItem constructor this.props', this.props);
-  // }
-
-  
-  renderCard(company) {
-    return(
-      <Card name={company.name}/>
-    )
-
-  }
-  convertColor(color) {
-
-    if(color === 'red') {
-      return '#F11C1C'
-    }
-    return '#1F1313'
-
-  }
-
   
   render() {
     // console.log('ListItem renderr this.props = ', this.props);
     const { navigate } = this.props.navigation
     // const { name, color, coId } = this.props.company
-    console.log('TTTTTTTTTTTTTThis this.props', this.props);
+    // console.log('TTTTTTTTTTTTTThis this.props', this.props);
 
     return (
       <Card color={this.props.company.color}>
@@ -52,7 +26,8 @@ class ListItem extends Component {
         </CardSection>
         <CardSection>
           <View style={styles.buttonRowStyle}>
-            <Button style={ styles.buttonContentStyle } onPress={() => { navigate('items')} }>Details</Button>
+            <Button style={ styles.buttonContentStyle } onPress={() => { 
+              navigate('items',{params: { coId:this.props.company.id}})} }>Details</Button>
             <Button style={ styles.buttonContentStyle } onPress={() => { navigate('invoices')} }>Invoices</Button>
             <Button style={ styles.buttonContentStyle } onPress={() => { navigate('invoiceEdit')} }>+Invoice</Button>
             <Button style={ styles.buttonContentStyle } onPress={() => { 

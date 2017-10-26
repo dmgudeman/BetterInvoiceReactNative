@@ -17,30 +17,12 @@ import * as actions from '../actions'
 
 class ItemCreateScreen extends Component {
  
-  // static navigationOptions =({navigation}) => ({
-  //   coId: navigation.state.params.coId
-  // })
-  // componentDidMount(){
-  //    // this.props.coId = this.props.navigation.state.params.coId
-  //    console.log('PROPS', props);
-  //    console.log('PARAMS',this.props.navigation.state.params.params.coId);
-  //    x = this.props.navigation.state.params.params.coId;
-  //    this.props.itemUpdate('coId',x)
-  //    console.log('PARAMS',this.props.navigation.state.params.params.coId);
-  //    console.log('PROPS', props);
-  // }
+  
   constructor(props) {
     super(props);
    
     console.log('PROPSSSSSSS', props);
-    // console.log('navigation.state', navigation.state);
-    // const navigateAction = NavigationActions.navigate({
-    //   routeName: 'itemCreate',
-    //   params: {},
     
-    //   // navigate can have a nested navigate action that will be run inside the child router
-    //   action: NavigationActions.navigate({ routeName: 'companies'})
-    // })
   }
   
 
